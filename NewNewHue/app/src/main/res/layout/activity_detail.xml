@@ -7,7 +7,7 @@
     tools:context=".ui.DetailActivity">
 
     <TextView
-        android:id="@+id/naam"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/hue"
-        app:layout_constraintStart_toEndOf="@+id/naam"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"/>
 

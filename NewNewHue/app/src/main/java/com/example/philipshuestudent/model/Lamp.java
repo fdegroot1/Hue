@@ -16,6 +16,7 @@ public class Lamp implements Serializable {
     private String type;
     private Pointsymbol pointSymbol;
     private String uniqueid;
+    private int lampnummer;
 
     public Lamp(JSONObject object) {
 

@@ -5,7 +5,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class State {
+import java.io.Serializable;
+
+public class State implements Serializable {
 
     private double[] xy;
     private int  ct;
