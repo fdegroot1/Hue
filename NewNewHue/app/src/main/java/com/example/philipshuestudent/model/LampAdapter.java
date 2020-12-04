@@ -1,5 +1,6 @@
 package com.example.philipshuestudent.model;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.philipshuestudent.R;
+import com.example.philipshuestudent.ui.SecondFragment;
 
 import java.util.ArrayList;
 
 public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
 
-    private ArrayList<Lamp> lampen;
+    private ArrayList<Lamp> lampList;
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -24,8 +27,9 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.getNaamView().setText("Test");
-        holder.getKleurView().setText("Test");
+        Lamp lamp = this.lampList.get(position);
+        holder.getNaamView().setText(lamp.getName());
+        holder.getKleurView().setText("#" + lamp.getState().getHue());
     }
 
     @Override
@@ -45,19 +49,22 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
         }
 
-        public TextView getNaamView(){
+        @Override
+        public void onClick(View view) {
+            int position = getLayoutPosition();
+            Lamp lamp = lampList.get(position);
+            Intent intent = new Intent(itemView.getContext(), SecondFragment.class);
+            itemView.getContext().startActivity(intent);
+        }
+
+        public TextView getNaamView() {
             return naamView;
         }
 
-        public TextView getKleurView(){
+        public TextView getKleurView() {
             return kleurView;
         }
 
-        @Override
-        public void onClick(View view) {
-            int positie = getLayoutPosition();
-
-        }
     }
 
 }

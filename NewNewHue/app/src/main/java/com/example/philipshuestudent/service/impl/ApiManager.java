@@ -1,6 +1,7 @@
 package com.example.philipshuestudent.service.impl;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,6 +39,7 @@ public class ApiManager {
                     String key = it.next();
                     Lamp lamp = new Lamp(response.getJSONObject(key));
                     listener.onAvailable(lamp);
+                    Log.d(ApiManager.class.getName(), "Lamp: " +lamp.getName());
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

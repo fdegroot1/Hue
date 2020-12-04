@@ -29,4 +29,32 @@ public class Lamp {
             e.printStackTrace();
         }
     }
+
+    public String getModelID() {
+        return modelID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSwversion() {
+        return swversion;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Pointsymbol getPointSymbol() {
+        return pointSymbol;
+    }
+
+    public String getUniqueid() {
+        return uniqueid;
+    }
 }

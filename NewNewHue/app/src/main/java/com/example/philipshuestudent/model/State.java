@@ -36,4 +36,40 @@ public class State {
             e.printStackTrace();
         }
     }
+
+    public double[] getXy() {
+        return xy;
+    }
+
+    public int getCt() {
+        return ct;
+    }
+
+    public String getAlert() {
+        return alert;
+    }
+
+    public int getSat() {
+        return sat;
+    }
+
+    public int getBri() {
+        return bri;
+    }
+
+    public int getHue() {
+        return hue;
+    }
+
+    public String getColormode() {
+        return colormode;
+    }
+
+    public boolean isReachable() {
+        return reachable;
+    }
+
+    public boolean isOn() {
+        return on;
+    }
 }
