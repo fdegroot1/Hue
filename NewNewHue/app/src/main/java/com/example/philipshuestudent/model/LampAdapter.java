@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.philipshuestudent.R;
-import com.example.philipshuestudent.ui.SecondFragment;
 
 import java.util.ArrayList;
 
