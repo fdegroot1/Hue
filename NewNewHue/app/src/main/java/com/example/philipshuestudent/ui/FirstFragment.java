@@ -34,16 +34,11 @@ public class FirstFragment extends Fragment implements ApiListener {
         View view = inflater.inflate(R.layout.fragment_first,container,false);
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        adapter = new LampAdapter();
+        lampen = new ArrayList<>();
+        adapter = new LampAdapter(this.getContext(), lampen);
         recyclerView.setAdapter(adapter);
 
-
-
-
-
         // Inflate the layout for this fragment
-        ApiManager apiManager = new ApiManager(this.getContext(), this);
-        apiManager.getLights();
         return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
@@ -57,6 +52,10 @@ public class FirstFragment extends Fragment implements ApiListener {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });*/
+
+        Log.d(FirstFragment.class.toString(), "Run api");
+        ApiManager apiManager = new ApiManager(this.getContext(), this);
+        apiManager.getLights();
     }
 
     @Override

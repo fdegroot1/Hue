@@ -1,5 +1,6 @@
 package com.example.philipshuestudent.model;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,12 @@ import java.util.ArrayList;
 public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
 
     private ArrayList<Lamp> lampList;
+    private LayoutInflater inflater;
+
+    public LampAdapter(Context context, ArrayList<Lamp> lampList) {
+        this.inflater = LayoutInflater.from(context);
+        this.lampList = lampList;
+    }
 
     @NonNull
     @Override
@@ -34,7 +41,7 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lampList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

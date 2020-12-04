@@ -19,7 +19,7 @@ public class ApiManager {
 
     private static final String TAG = ApiManager.class.getSimpleName();
 
-    private String bridgeUri = "http://localhost:8000/api/";
+    private String bridgeUri = "http://192.168.178.172:8000/api/";
     private String username = "newdeveloper";
     private String category = "/lights";
     private RequestQueue queue;
