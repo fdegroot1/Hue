@@ -3,7 +3,6 @@ package com.example.philipshuestudent.service;
 import com.example.philipshuestudent.model.Lamp;
 
 public interface HueEmulatorService {
-    Lamp getLights();
-    void setBridgeUri(String uri);
-    void setUsername(String username);
+    public void onAvailable(Lamp lamp);
+    public void onError(Lamp lamp);
 }

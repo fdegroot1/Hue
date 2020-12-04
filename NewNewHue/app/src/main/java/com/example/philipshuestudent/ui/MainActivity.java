@@ -33,14 +33,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
 
-                hueEmulatorService.setBridgeUri(getResources().getString(R.string.philips_hue_bridge_uri));
-                hueEmulatorService.setUsername(getResources().getString(R.string.bridge_username));
+                /*hueEmulatorService.setBridgeUri(getResources().getString(R.string.philips_hue_bridge_uri));
+                hueEmulatorService.setUsername(getResources().getString(R.string.bridge_username));*/
 
-                final Lamp lamps = hueEmulatorService.getLights();
-                Snackbar.make(view, lamps.getProduct().getName(), Snackbar.LENGTH_LONG).show();
+                //final Lamp lamps = hueEmulatorService.getLights();
             }
         });
     }
