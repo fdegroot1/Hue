@@ -18,12 +18,17 @@ public class Lamp implements Serializable {
     private String uniqueid;
     private int lampnummer;
 
+    public int getLampnummer() {
+        return lampnummer;
+    }
+
     public Lamp(JSONObject object) {
 
         try {
            this.modelID = object.getString("modelid");
            this.name = object.getString("name");
            this.swversion = object.getString("swversion");
+           this.lampnummer = Character.getNumericValue(name.charAt(name.length()-1));
            this.state = new State(object.getJSONObject("state"));
            this.type = object.getString("type");
            this.pointSymbol = new Pointsymbol(object.getJSONObject("pointsymbol"));
