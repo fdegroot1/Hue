@@ -73,6 +73,6 @@ public class MainActivity extends AppCompatActivity  implements ApiListener{
 
     @Override
     public void onError(Error error) {
-        Log.e(FirstFragment.class.getName(), "Error: " + error.toString());
+        Log.e(MainActivity.class.getName(), "Error: " + error.toString());
     }
 }

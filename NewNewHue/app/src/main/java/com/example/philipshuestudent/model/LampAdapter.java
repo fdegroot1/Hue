@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.philipshuestudent.R;
+import com.example.philipshuestudent.ui.DetailActivity;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
         public void onClick(View view) {
             int position = getLayoutPosition();
             Lamp lamp = lampList.get(position);
-            Intent intent = new Intent(itemView.getContext(), SecondFragment.class);
+            Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
             itemView.getContext().startActivity(intent);
         }
 
