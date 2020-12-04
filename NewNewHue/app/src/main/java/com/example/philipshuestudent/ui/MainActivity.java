@@ -3,11 +3,9 @@ package com.example.philipshuestudent.ui;
 import android.os.Bundle;
 
 import com.example.philipshuestudent.R;
-import com.example.philipshuestudent.model.Lamp;
-import com.example.philipshuestudent.service.HueEmulatorService;
-import com.example.philipshuestudent.service.impl.HueEmulatorServiceImpl;
+import com.example.philipshuestudent.service.ApiListener;
+import com.example.philipshuestudent.service.impl.ApiManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,8 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
-    private HueEmulatorService hueEmulatorService = new HueEmulatorServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

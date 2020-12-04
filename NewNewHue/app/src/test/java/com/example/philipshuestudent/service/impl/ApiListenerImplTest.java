@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HueEmulatorServiceImplTest {
+class ApiListenerImplTest {
 
-    private HueEmulatorServiceImpl sut = new HueEmulatorServiceImpl();
+    private ApiManager sut = new ApiManager();
 
     @BeforeEach
     void setUp() {
