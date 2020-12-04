@@ -16,10 +16,12 @@ public class Lamp implements Serializable {
     private String type;
     private Pointsymbol pointSymbol;
     private String uniqueid;
+    private int lampnummer;
 
     public Lamp(JSONObject object) {
 
         try {
+           this.lampnummer = Character.getNumericValue(name.charAt(name.length()-1));
            this.modelID = object.getString("modelid");
            this.name = object.getString("name");
            this.swversion = object.getString("swversion");
@@ -38,6 +40,10 @@ public class Lamp implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public int getLampnummer() {
+        return lampnummer;
     }
 
     public String getSwversion() {

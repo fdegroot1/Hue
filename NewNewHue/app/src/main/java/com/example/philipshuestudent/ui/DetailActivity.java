@@ -25,10 +25,9 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         manager = ApiManager.getInstance();
         lamp = (Lamp)getIntent().getSerializableExtra("Lamp");
-        ((TextView)findViewById(R.id.naam)).setText(lamp.getName());
+        ((TextView)findViewById(R.id.name)).setText(lamp.getName());
         ((TextView)findViewById(R.id.id)).setText(lamp.getModelID());
-        ((TextView)findViewById(R.id.hue)).setText(lamp.getState().getHue());
-
+        ((TextView)findViewById(R.id.hue)).setText(lamp.getState().getHue()+"");
         colorPickerView = this.findViewById(R.id.colorPickerView);
         colorPickerView.subscribe((color, fromUser, shouldPropagate) -> {
             Log.d(getClass().getName(), "Color: "+ color);
