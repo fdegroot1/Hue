@@ -23,7 +23,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        manager = ApiManager.getInstance();
+//        manager = ApiManager.getInstance();
         lamp = (Lamp)getIntent().getSerializableExtra("Lamp");
         ((TextView)findViewById(R.id.name)).setText(lamp.getName());
         ((TextView)findViewById(R.id.id)).setText(lamp.getModelID());

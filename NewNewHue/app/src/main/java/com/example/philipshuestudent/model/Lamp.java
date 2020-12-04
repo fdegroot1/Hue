@@ -21,14 +21,14 @@ public class Lamp implements Serializable {
     public Lamp(JSONObject object) {
 
         try {
-           this.lampnummer = Character.getNumericValue(name.charAt(name.length()-1));
-           this.modelID = object.getString("modelid");
-           this.name = object.getString("name");
-           this.swversion = object.getString("swversion");
-           this.state = new State(object.getJSONObject("state"));
-           this.type = object.getString("type");
-           this.pointSymbol = new Pointsymbol(object.getJSONObject("pointsymbol"));
-           this.uniqueid = object.getString("uniqueid");
+            this.modelID = object.getString("modelid");
+            this.name = object.getString("name");
+            this.lampnummer = Character.getNumericValue(name.charAt(name.length() - 1));
+            this.swversion = object.getString("swversion");
+            this.state = new State(object.getJSONObject("state"));
+            this.type = object.getString("type");
+            this.pointSymbol = new Pointsymbol(object.getJSONObject("pointsymbol"));
+            this.uniqueid = object.getString("uniqueid");
         } catch (JSONException e) {
             e.printStackTrace();
         }

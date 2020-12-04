@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity  implements ApiListener{
         adapter = new LampAdapter(getApplicationContext()   , lampen);
         recyclerView.setAdapter(adapter);
 
-        ApiManager apiManager = ApiManager.createInstance(getApplicationContext(), this);
+        ApiManager apiManager = new ApiManager(getApplicationContext(), this);
         apiManager.getLights();
     }
 
@@ -72,6 +72,6 @@ public class MainActivity extends AppCompatActivity  implements ApiListener{
 
     @Override
     public void onError(Error error) {
-        Log.e(MainActivity.class.getName(), "Error: " + error.toString());
+        Log.e(MainActivity.class.getName(), "Error: " + error.getMessage());
     }
 }
