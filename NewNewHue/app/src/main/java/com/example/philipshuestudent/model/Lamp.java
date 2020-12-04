@@ -5,7 +5,9 @@ package com.example.philipshuestudent.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Lamp {
+import java.io.Serializable;
+
+public class Lamp implements Serializable {
 
     private String modelID;
     private String name;
@@ -14,6 +16,7 @@ public class Lamp {
     private String type;
     private Pointsymbol pointSymbol;
     private String uniqueid;
+    private int lampnummer;
 
     public Lamp(JSONObject object) {
 

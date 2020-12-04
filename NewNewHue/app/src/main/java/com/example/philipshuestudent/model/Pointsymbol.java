@@ -3,10 +3,11 @@ package com.example.philipshuestudent.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Pointsymbol {
+public class Pointsymbol implements Serializable {
 
     private ArrayList<String> list;
 
