@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        fab.setOnClickListener(view -> {
 
-                /*hueEmulatorService.setBridgeUri(getResources().getString(R.string.philips_hue_bridge_uri));
-                hueEmulatorService.setUsername(getResources().getString(R.string.bridge_username));*/
+            /*hueEmulatorService.setBridgeUri(getResources().getString(R.string.philips_hue_bridge_uri));
+            hueEmulatorService.setUsername(getResources().getString(R.string.bridge_username));*/
 
-                //final Lamp lamps = hueEmulatorService.getLights();
-            }
+            //final Lamp lamps = hueEmulatorService.getLights();
         });
     }
 

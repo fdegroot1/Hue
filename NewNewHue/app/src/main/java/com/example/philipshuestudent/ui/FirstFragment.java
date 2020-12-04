@@ -1,6 +1,7 @@
 package com.example.philipshuestudent.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class FirstFragment extends Fragment implements ApiListener {
 
     private RecyclerView recyclerView;
     private ArrayList<Lamp> lampen;
+    private LampAdapter adapter;
 
     @Override
     public View onCreateView(
@@ -32,7 +34,13 @@ public class FirstFragment extends Fragment implements ApiListener {
         View view = inflater.inflate(R.layout.fragment_first,container,false);
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new LampAdapter());
+        adapter = new LampAdapter();
+        recyclerView.setAdapter(adapter);
+
+
+
+
+
         // Inflate the layout for this fragment
         ApiManager apiManager = new ApiManager(this.getContext(), this);
         apiManager.getLights();
@@ -53,11 +61,12 @@ public class FirstFragment extends Fragment implements ApiListener {
 
     @Override
     public void onAvailable(Lamp lamp) {
-
+        this.lampen.add(lamp);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onError(Lamp lamp) {
-
+    public void onError(Error error) {
+        Log.e(FirstFragment.class.getName(), "Error: " + error.toString());
     }
 }
