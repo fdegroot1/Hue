@@ -19,13 +19,14 @@ public class ApiManager {
 
     private static final String TAG = ApiManager.class.getSimpleName();
 
-    private String bridgeUri = "http://192.168.178.172:8000/api/";
+    private String bridgeUri = "https://192.168.0.111:8000/api/";
     private String username = "newdeveloper";
     private String category = "/lights";
     private RequestQueue queue;
     private ApiListener listener;
 
     public ApiManager(Context context, ApiListener apiListener) {
+        Log.d(this.getClass().getName()," Create manager");
         this.queue = Volley.newRequestQueue(context);
         this.listener = apiListener;
     }
@@ -33,8 +34,11 @@ public class ApiManager {
     public void getLights() {
         final String uri = bridgeUri + username + category;
 
+        Log.d(this.getClass().getName()," Get lights");
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, uri, null, response -> {
             try {
+
+                Log.d(this.getClass().getName(),"Test: "+response.keys().toString());
                 for (Iterator<String> it = response.keys(); it.hasNext(); ) {
                     String key = it.next();
                     Lamp lamp = new Lamp(response.getJSONObject(key));
@@ -45,6 +49,7 @@ public class ApiManager {
                 e.printStackTrace();
             }
         }, error -> {
+            Log.d(this.getClass().getName(),"ERRRRRRRROR");
             listener.onError(new Error( error.getLocalizedMessage()));
         });
         this.queue.add(request);
