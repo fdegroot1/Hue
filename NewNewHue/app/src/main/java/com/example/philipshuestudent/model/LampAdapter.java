@@ -61,7 +61,9 @@ public class LampAdapter extends RecyclerView.Adapter<LampAdapter.ViewHolder> {
             int position = getLayoutPosition();
             Lamp lamp = lampList.get(position);
             Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+            intent.putExtra("Lamp",lampList.get(position));
             itemView.getContext().startActivity(intent);
+
         }
 
         public TextView getNaamView() {

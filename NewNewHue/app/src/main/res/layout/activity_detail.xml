@@ -7,7 +7,7 @@
     tools:context=".ui.DetailActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/naam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -16,17 +16,17 @@
         android:layout_margin="10dp"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/hue"
+        app:layout_constraintStart_toEndOf="@+id/naam"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/hue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -42,16 +42,16 @@
         app:enableBrightness="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/switchy"
         android:layout_margin="10dp"/>
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switchy"
         android:layout_width="87dp"
         android:layout_height="21dp"
         android:text="On"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/id"
         android:layout_margin="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
