@@ -5,17 +5,31 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.philipshuestudent.model.Lamp;
 import com.example.philipshuestudent.service.ApiListener;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Iterator;
 
 
 public class ApiManager {
+
+    private static ApiManager manager;
+
+    public static ApiManager getInstance(){
+        return manager;
+    }
+
+    public static ApiManager createInstance(Context context, ApiListener apiListener){
+        manager = new ApiManager(context, apiListener);
+        return manager;
+    }
 
     private static final String TAG = ApiManager.class.getSimpleName();
 
@@ -25,7 +39,7 @@ public class ApiManager {
     private RequestQueue queue;
     private ApiListener listener;
 
-    public ApiManager(Context context, ApiListener apiListener) {
+    private ApiManager(Context context, ApiListener apiListener) {
         Log.d(this.getClass().getName()," Create manager");
         this.queue = Volley.newRequestQueue(context);
         this.listener = apiListener;
@@ -44,6 +58,7 @@ public class ApiManager {
                     Lamp lamp = new Lamp(response.getJSONObject(key));
                     listener.onAvailable(lamp);
                     Log.d(ApiManager.class.getName(), "Lamp: " +lamp.getName());
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -53,6 +68,20 @@ public class ApiManager {
             listener.onError(new Error( error.getLocalizedMessage()));
         });
         this.queue.add(request);
+    }
+
+    public void sendPost(int lampNr, JSONObject body){
+        final String url = bridgeUri + username + category + "/" + lampNr;
+         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, body, response -> {
+             Log.d(getClass().getName(),"Message correct");
+         }, error -> {
+            Log.d(getClass().getName(), error.getMessage());
+         });
+         queue.add(request);
+    }
+
+    public void setColor(int lampNr , int color){
+
     }
 
     public void setBridgeUri(String bridgeUri) {
